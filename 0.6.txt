@@ -1,0 +1,30 @@
+
+
+browser-->server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+activate server
+server-->browser: SPA document
+deactivate server
+
+browser-->server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+activate server
+server-->browser: css document
+deactivate server
+
+browser-->server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+activate server
+server-->browser: spa.js document
+browser runs JavaScript that gets the JSON data from the server
+Server gives json
+deactivate server
+
+browser-->server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+activate server
+server-->browser: data.json
+deactivate server
+
+
+Browser --> Server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+activate server
+No get request is needed because the spa.js file contains the code to send the POST request
+as well as update the notes list in the file without re rendering 
+deactivate server
